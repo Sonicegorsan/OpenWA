@@ -3357,7 +3357,7 @@ def main():
         func_object = ida_funcs.get_func(func_ea)
         if func_object:
             func_name = ida_name.get_ea_name(func_ea)
-            if func_name[:4] != "sub_" and not "_sub_" in func_name and not func_name in initial_names:
+            if func_name[:4] != "sub_" and not func_name[:3] != "_._" and not "_sub_" in func_name and not func_name in initial_names:
                 attempt_count += 1
                 msg("Action: Applying suffix to: " + func_name + '\n')
                 parts = func_name.split("__")
