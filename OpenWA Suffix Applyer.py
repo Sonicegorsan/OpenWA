@@ -3348,26 +3348,35 @@ def UpdateFunctionName(Identifier, RVA):
 
 def main():
     msg("Script started\n")
+    attempt_count = 0
+    success_count = 0
+    failure_count = 0
+
     global initial_names
     for func_ea in idautils.Functions():
         func_object = ida_funcs.get_func(func_ea)
         if func_object:
             func_name = ida_name.get_ea_name(func_ea)
             if func_name[:4] != "sub_" and not "_sub_" in func_name and not func_name in initial_names:
-                msg("Applying suffix to: " + func_name + '\n')
+                attempt_count += 1
+                msg("Action: Applying suffix to: " + func_name + '\n')
                 parts = func_name.split("__")
-                print(parts, len(parts))
+                print("Debug: ", parts, len(parts), parts[1][0])
                 if len(parts) == 2 and parts[1][0].isdigit():
                     modified_name = parts[0] + "_sub_" + \
                         hex(func_ea)[2:].upper() + "__" + parts[1]
                     UpdateFunctionName(modified_name, func_ea)
-                if len(parts) == 1:
+                    print("Result: Applyed success")
+                    success_count += 1
+                elif len(parts) == 1:
                     UpdateFunctionName(func_name + "_sub_" +
                                        hex(func_ea)[2:].upper(), func_ea)
+                    success_count += 1
                 else:
-                    msg("Cannot handle nested namespaces\n")
-
-    msg("Script ended\n")
+                    msg("Result: Cannot handle nested namespaces\n")
+                    failure_count += 1
+    print("Script finished, final result: ", "Applyed functions (", attempt_count, "); ",
+          "Succeeded applyments (", success_count, "); ", "Failed applyments (", failure_count, ").")
 
 
 if __name__ == "__main__":
