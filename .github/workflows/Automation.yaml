@@ -1,0 +1,47 @@
+name: Update README
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} 
+
+
+      - name: Calculate progress and update README
+        run: |
+          # Получаем количество изменений из git diff
+          CHANGED_LINES=$(git diff --stat "Pure Map.map" "Current Map.map" | sed -n '$s/.* \([0-9]*\) .*/\1/p')
+
+          # Проверяем, были ли какие-либо изменения
+          if [ -z "$CHANGED_LINES" ]; then
+            echo "No changes detected"
+            exit 0
+          fi
+
+          TOTAL_FUNCTIONS=6297
+          PROGRESS=$((CHANGED_LINES * 100 / TOTAL_FUNCTIONS))
+
+          # Читаем текущий README.md
+          README_CONTENTS=$(cat README.md)
+
+          # Обновляем бейдж в README.md
+          UPDATED_CONTENTS=$(echo "$README_CONTENTS" | sed "s/Reversing Progress-[0-9]*%25/Reversing Progress-$PROGRESS%25/")
+
+          # Пишем обновленное содержимое обратно в README.md
+          echo "$UPDATED_CONTENTS" > README.md
+
+      - name: Commit and push if changed
+        run: |
+          git config user.email "actions@users.noreply.github.com"
+          git config user.name "GitHub Actions"
+          git add README.md
+          git commit -m "Update README with progress" -m "Changed lines: $CHANGED_LINES" || echo "No changes to commit"
+          git push
