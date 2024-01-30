@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'README.md'
 
 jobs:
   update-readme:
@@ -17,10 +19,14 @@ jobs:
 
       - name: Calculate progress and update README
         run: |
-          # Получаем количество изменений из git diff
-          CHANGED_LINES=$(git diff --stat "Pure Map.map" "Current Map.map" | sed -n '$s/.* \([0-9]*\) .*/\1/p')
+          git diff --stat "Pure Map.map" "Current Map.map"
 
-          # Проверяем, были ли какие-либо изменения
+          DIFF_OUTPUT=$(git diff --stat "Pure Map.map" "Current Map.map")
+          echo "Diff output: $DIFF_OUTPUT"
+          
+          CHANGED_LINES=$(echo "$DIFF_OUTPUT" | sed -n '$s/.* \([0-9]*\) .*/\1/p')
+          echo "Extracted changed lines: $CHANGED_LINES"
+
           if [ -z "$CHANGED_LINES" ]; then
             echo "No changes detected"
             exit 0
@@ -29,13 +35,10 @@ jobs:
           TOTAL_FUNCTIONS=6297
           PROGRESS=$((CHANGED_LINES * 100 / TOTAL_FUNCTIONS))
 
-          # Читаем текущий README.md
           README_CONTENTS=$(cat README.md)
 
-          # Обновляем бейдж в README.md
           UPDATED_CONTENTS=$(echo "$README_CONTENTS" | sed "s/Reversing Progress-[0-9]*%25/Reversing Progress-$PROGRESS%25/")
 
-          # Пишем обновленное содержимое обратно в README.md
           echo "$UPDATED_CONTENTS" > README.md
 
       - name: Commit and push if changed
