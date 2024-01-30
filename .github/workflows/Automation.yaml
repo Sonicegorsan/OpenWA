@@ -19,27 +19,43 @@ jobs:
 
       - name: Calculate progress and update README
         run: |
-          git diff --stat "Pure Map.map" "Current Map.map"
+          DIFF_OUTPUT=$(diff -u "Pure Map.map" "Current Map.map" || true)
 
-          DIFF_OUTPUT=$(git diff --stat "Pure Map.map" "Current Map.map")
-          echo "Diff output: $DIFF_OUTPUT"
-          
-          CHANGED_LINES=$(echo "$DIFF_OUTPUT" | sed -n '$s/.* \([0-9]*\) .*/\1/p')
-          echo "Extracted changed lines: $CHANGED_LINES"
+          ADDED_LINES=$(echo "$DIFF_OUTPUT" | grep -c '^+')
 
-          if [ -z "$CHANGED_LINES" ]; then
-            echo "No changes detected"
-            exit 0
-          fi
+          DELETED_LINES=$(echo "$DIFF_OUTPUT" | grep -c '^-')
+
+          TOTAL_CHANGED_LINES=$((ADDED_LINES - DELETED_LINES))
+
+          echo "Added lines: $ADDED_LINES"
+          echo "Deleted lines: $DELETED_LINES"
+          echo "Total changed lines: $TOTAL_CHANGED_LINES"
 
           TOTAL_FUNCTIONS=6297
-          PROGRESS=$((CHANGED_LINES * 100 / TOTAL_FUNCTIONS))
+
+          PROGRESS=$((TOTAL_CHANGED_LINES * 100 / TOTAL_FUNCTIONS))
 
           README_CONTENTS=$(cat README.md)
 
-          UPDATED_CONTENTS=$(echo "$README_CONTENTS" | sed "s/Reversing Progress-[0-9]*%25/Reversing Progress-$PROGRESS%25/")
+          UPDATED_CONTENTS=$(echo "$README_CONTENTS" | sed "s/Reversing%20Progress-[0-9]*%25-blue.svg/Reversing%20Progress-$PROGRESS%25-blue.svg/")
 
           echo "$UPDATED_CONTENTS" > README.md
+          echo "Original README contents:"
+
+          cat README.md
+
+          echo "New README contents:"
+          echo "$UPDATED_CONTENTS"
+
+          echo "$UPDATED_CONTENTS" > README.md
+          git add README.md
+
+          echo "Changes to commit:"
+          git status
+
+          git commit -m "Update README with progress" -m "Changed lines: $TOTAL_CHANGED_LINES" || echo "No changes to commit"
+          git push
+
 
       - name: Commit and push if changed
         run: |
