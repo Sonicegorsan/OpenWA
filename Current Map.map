@@ -319,10 +319,13 @@
  0001:000FDD10       ?GetGroup@ScheduleGroupSegmentBase@details@Concurrency@@QBEPAVScheduleGroupBase@23@XZ
  0001:000FDD50       GameCollisionTask_sub_4FED50__17GameCollisionTask
  0001:000FDF30       ??1_Locimp@locale@std@@UAE@XZ
+ 0001:000FE020       collision_sound_sub_4FF020__17GameCollisionTask11SoundEffectiii
+ 0001:000FE080       GameCollisionTask_sub_4FF080__17GameCollisionTask
  0001:000FE1C0       save_sub_4FF1C0__17GameCollisionTaskR10ClassState
  0001:000FE280       message_sub_4FF280__17GameCollisionTask
  0001:000FE674       def_4FF4AA
  0001:000FE67C       jpt_4FF4AA
+ 0001:000FE720       transfer_sub_4FF720__17GameCollisionTaskP17GameCollisionTaski
  0001:000FE907       def_4FF73E
  0001:000FE9D8       jpt_4FF73E
  0001:000FEED0       collide_sub_4FFED0__17GameCollisionTaskP17GameCollisionTaski
@@ -332,6 +335,8 @@
  0001:001008C8       jpt_501484
  0001:001008DC       jpt_5017C3
  0001:00100A80       Task_Canister_sub_501A80__13Task_Canister
+ 0001:00100E20       transfer_sub_501E20__13Task_CanisterP17GameCollisionTaski
+ 0001:00100E30       collide_sub_501E30__13Task_CanisterP17GameCollisionTaski
  0001:00100E80       calc_sprite_sub_501E80__13Task_CanisterRiRi
  0001:00100EE0       render_sub_501EE0__13Task_Canister
  0001:00100F60       emit_gass_sub_501F60__13Task_Canister
@@ -341,9 +346,15 @@
  0001:00101398       jpt_5020B4
  0001:00101490       Task_Crate_sub_502490__10Task_Crate
  0001:00101880       construct_pointers_sub_502880__10Task_Crate
+ 0001:00101A10       Task_Crate_sub_502A10__10Task_Crate
+ 0001:00101B50       save_sub_502B50__10Task_CrateR10ClassState
  0001:00101BE0       ??1strstreambuf@std@@UAE@XZ_8
+ 0001:00101D20       collide_sub_502D20__10Task_CrateP17GameCollisionTaski
+ 0001:00101D80       detonate_sub_502D80__10Task_Crate11WeaponIndexP8GameTask
  0001:00101F65       def_502DE8
  0001:00101F7C       jpt_502DE8
+ 0001:00101FD0       detonate_sub_502FD0__10Task_Crate
+ 0001:001022F0       set_state_sub_5032F0__10Task_Cratei
  0001:00102390       calc_sprite_sub_503390__10Task_CrateR13DisplaySpriteRi
  0001:00102430       def_5033AE
  0001:001024D7       def_503468
@@ -351,21 +362,34 @@
  0001:001024F8       jpt_503468
  0001:00102510       close_to_landing_sub_503510__10Task_Cratei
  0001:00102570       render_indicator_sub_503570__10Task_Crate
+ 0001:001027C0       render_sub_5037C0__10Task_Crate
  0001:00102AD0       message_sub_503AD0__10Task_CrateR4Task15TaskMessageTypeiP15TaskMessageBody
  0001:00102ED1       def_503B19
  0001:00102EF0       jpt_503B19
+ 0001:00102F70       enquire_sub_503F70__10Task_Crate17TaskAttributeTypeiP17TaskAttributeBody
+ 0001:00102FA0       configure_sub_503FA0__10Task_Crate17TaskAttributeTypeiP17TaskAttributeBody
  0001:001035C0       Task_Cross_sub_5045C0__10Task_Cross
+ 0001:00103730       save_sub_504730__10Task_CrossR10ClassState
+ 0001:00103770       collide_sub_504770__10Task_CrossP17GameCollisionTaski
+ 0001:001037D0       message_sub_5047D0__10Task_CrossR4Task15TaskMessageTypeiP15TaskMessageBody
  0001:00103A66       def_5047F2
  0001:00103A84       jpt_5047F2
  0001:00103AF0       Task_OilDrum_sub_504AF0__12Task_OilDrum
+ 0001:00103CC0       Task_OilDrum_sub_504CC0__12Task_OilDrum
+ 0001:00103D40       save_sub_504D40__12Task_OilDrumR10ClassState
+ 0001:00103D90       collide_sub_504D90__12Task_OilDrumP17GameCollisionTaski
+ 0001:00103DF0       detonate_sub_504DF0__12Task_OilDrum
  0001:00104000       render_sub_505000__12Task_OilDrum
  0001:001040B0       message_sub_5050B0__12Task_OilDrumR4Task15TaskMessageTypeiP15TaskMessageBody
  0001:0010439B       def_5050D7
  0001:001043B8       jpt_5050D7
+ 0001:00104420       configure_sub_505420__12Task_OilDrum17TaskAttributeTypeiP17TaskAttributeBody
  0001:00104440       Task_Land_sub_505440__9Task_Land
  0001:00104540       init_windbar_sub_505540__9Task_Land
+ 0001:00104660       Task_Land_sub_505660__9Task_Land
  0001:001046F0       construct_static_sub_5056F0__9Task_Land
  0001:001047D0       save_sub_5057D0__9Task_LandR10ClassState
+ 0001:00104810       render_landscape_sub_505810__9Task_Land
  0001:00104BC0       create_bubbles_sub_505BC0__9Task_Land
  0001:00104C70       init_stars_sub_505C70__9Task_Land
  0001:00104DB0       blast_star_sub_505DB0__9Task_Landiiii
@@ -375,7 +399,10 @@
  0001:001053F0       jpt_506142
  0001:00105480       render_wind_indicator_sub_506480__9Task_Land
  0001:00105660       Task_Mine_sub_506660__9Task_Mine
+ 0001:001059F0       Task_Mine_sub_5069F0__9Task_Mine
+ 0001:00105CD0       save_sub_506CD0__9Task_MineR10ClassState
  0001:00105D20       construct_pointers_sub_506D20__9Task_Mine
+ 0001:00105DB0       transfer_sub_506DB0__9Task_MineP17GameCollisionTaski
  0001:00105DE0       collide_sub_506DE0__9Task_MineP17GameCollisionTaski
  0001:00105E60       calc_sprite_sub_506E60__9Task_MineRiRi
  0001:00105EF0       render_sub_506EF0__9Task_Mine
@@ -390,6 +417,8 @@
  0001:0010729E       def_50825E
  0001:00107300       jpt_508070
  0001:00107314       jpt_50825E
+ 0001:00107350       Task_Missile_sub_508350__12Task_Missile
+ 0001:00107640       save_sub_508640__12Task_MissileR10ClassState
  0001:001079D0       construct_pointers_sub_5089D0__12Task_Missile
  0001:00107B50       start_fuse_sound_sub_508B50__12Task_Missile11SoundEffect
  0001:00107C10       stop_fuse_sound_sub_508C10__12Task_Missile
@@ -421,9 +450,12 @@
  0001:0010AEE4       jpt_50B43C
  0001:0010AF88       jpt_50B9B8
  0001:0010AFB0       Task_Worm_sub_50BFB0__9Task_Worm
+ 0001:0010B800       Task_Worm_sub_50C800__9Task_Worm
+ 0001:0010BAA0       save_sub_50CAA0__9Task_WormR10ClassState
  0001:0010BED0       CompareFunction
  0001:0010C370       calc_highest_fall_sub_50D370__9Task_Worm
  0001:0010C450       track_sub_50D450__9Task_Worm
+ 0001:0010C540       worm_comment_sub_50D540__9Task_WormPPc
  0001:0010C570       quake_force_sub_50D570__9Task_Wormii
  0001:0010C58C       def_50D585
  0001:0010C5B4       jpt_50D585
@@ -714,6 +746,9 @@
  0001:0011EE74       jpt_51FDC6
  0001:0011EE84       jpt_51FDF3
  0001:0011EEB0       Task_OldWorm_sub_51FEB0__12Task_OldWorm
+ 0001:0011F170       save_sub_520170__12Task_OldWormR10ClassState
+ 0001:0011F280       track_sub_520280__12Task_OldWorm
+ 0001:0011F2C0       transfer_sub_5202C0__12Task_OldWormP17GameCollisionTaski
  0001:0011F3D0       collide_sub_5203D0__12Task_OldWormP17GameCollisionTaski
  0001:0011F66B       def_520416
  0001:0011F71C       jpt_520416
@@ -805,6 +840,7 @@
  0001:00140970       insert_sub_541970__15ProbabilityList
  0001:001409C0       pick_sub_5419C0__15ProbabilityList
  0001:00140A70       remove_sub_541A70__15ProbabilityList
+ 0001:00140F40       fill3d_sub_541F40__8GameTaskiiiiiii
  0001:00140FE0       sprite2d_sub_541FE0__8GameTask
  0001:00141060       sprite3d_sub_542060__8GameTask
  0001:00141170       bitmap2d_sub_542170__8GameTask
@@ -820,6 +856,7 @@
  0001:00145490       sound_stop_sub_546490__8GameTask
  0001:001456C0       Task_Animation_sub_5466C0__14Task_Animation
  0001:00145760       message_sub_546760__14Task_Animation
+ 0001:001459C0       GameTask_sub_5469C0__8GameTask
  0001:00145A30       machine_playing_sub_546A30__8GameTask
  0001:00145A90       moveto_sub_546A90__8GameTask
  0001:00145AF0       start_recording_sub_546AF0__8GameTask
