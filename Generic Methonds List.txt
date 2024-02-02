@@ -3,28 +3,28 @@ Generic Methods Completion
 49	Task_Canister			struct Done
 50	Task_Crate			struct Done
 51	Task_Cross			struct Done
-52	Task_Drill			struct 
+52	Task_Drill			struct Missing
 53	Task_OilDrum			struct Done
 54	Task_Land			struct Done
 55	Task_Mine			struct Done
 56	Task_Missile			struct Done
 57	Task_Worm			struct Done
 58	Task_OldWorm			struct Done
-78	Task_Animation			struct 
-79	GameTask			struct 
-80	Task_CPU			struct 
-81	Task_Control			struct 
-82	Task_Dirt			struct 
-83	Task_Filter			struct 
-84	Task_Fire			struct 
-85	Task_FireBall			struct 
-86	Task_Flame			struct 
-87	Task_Game			struct 
-88	Task_Gass			struct 
-89	Task_ScoreBubble			struct 
-90	Task_SeaBubble			struct 
-91	Task_Smoke			struct 
-92	Task_AirStrike			struct 
-93	Task_Team			struct 
-94	Task_TurnGame			struct 
-95	Task			struct 
+78	Task_Animation			struct Done?
+79	GameTask			struct Done?
+80	Task_CPU			struct Done
+81	Task_Control			struct Missing
+82	Task_Dirt			struct Done
+83	Task_Filter			struct Done
+84	Task_Fire			struct Done
+85	Task_FireBall			struct Done
+86	Task_Flame			struct Done?
+87	Task_Game			struct Done
+88	Task_Gass			struct Done
+89	Task_ScoreBubble			struct Done
+90	Task_SeaBubble			struct Done
+91	Task_Smoke			struct Done
+92	Task_AirStrike			struct Done
+93	Task_Team			struct Done
+94	Task_TurnGame			struct Done
+95	Task			struct Done

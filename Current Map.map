@@ -774,6 +774,8 @@
  0001:00120CD8       jpt_5219A4
  0001:001214D0       get_current_energy_sub_5224D0__12GameDatabase
  0001:00121500       set_playing_sub_522500__12GameDatabase
+ 0001:001215A0       get_flag_sub_5225A0__12GameDatabase12DatabaseFlag
+ 0001:001215E0       get_nweapons_sub_5225E0__12GameDatabasei11WeaponIndex
  0001:001216E5       def_5226D6
  0001:001216EC       jpt_5226D6
  0001:00121700       get_revenge_sub_522700__12GameDatabaseiiRiT3
@@ -857,6 +859,7 @@
  0001:001456C0       Task_Animation_sub_5466C0__14Task_Animation
  0001:00145760       message_sub_546760__14Task_Animation
  0001:001459C0       GameTask_sub_5469C0__8GameTask
+ 0001:001459F0       save_sub_5469F0__8GameTaskR10ClassState
  0001:00145A30       machine_playing_sub_546A30__8GameTask
  0001:00145A90       moveto_sub_546A90__8GameTask
  0001:00145AF0       start_recording_sub_546AF0__8GameTask
@@ -879,6 +882,7 @@
  0001:00146D10       camera_track_sub_547D10__8GameTask
  0001:00146D80       set_track_sub_547D80__8GameTask
  0001:00146E70       camera_focus_sub_547E70__8GameTask
+ 0001:00146ED0       set_active_sub_547ED0__8GameTask
  0001:00146F00       bitmap3d_sub_547F00__8GameTask
  0001:00146F60       comment_public_sub_547F60__8GameTask
  0001:00146FC0       game_text_public_sub_547FC0__8GameTask
@@ -888,6 +892,8 @@
  0001:001471E0       comment_public_sub_5481E0__8GameTask
  0001:001472E0       Task_Cloud_sub_5482E0__10Task_Cloud
  0001:001475D0       Task_CPU_sub_5485D0__8Task_CPU
+ 0001:00147790       Task_CPU_sub_548790__8Task_CPU
+ 0001:00147940       save_sub_548940__8Task_CPUR10ClassState
  0001:00147A00       worm_on_head_sub_548A00__8Task_CPU
  0001:00147AB0       process_EvaluateWorm_sub_548AB0__8Task_CPU
  0001:00147E70       process_TakeShot_sub_548E70__8Task_CPU
@@ -895,6 +901,7 @@
  0001:0014803C       jpt_548FA9
  0001:00148050       process_Initialise_sub_549050__8Task_CPU
  0001:00148110       process_JumpUp_sub_549110__8Task_CPU
+ 0001:00148160       find_crate_sub_549160__8Task_CPURi
  0001:00148200       find_shot_sub_549200__8Task_CPURQ28Task_CPU11ShotGenericP11WeaponIndexiUi
  0001:00148470       find_weapon_sub_549470__8Task_CPURQ28Task_CPU11ShotGeneric
  0001:00148650       enumerate_walk_sub_549650__8Task_CPUii
@@ -911,6 +918,7 @@
  0001:00148E90       walk_sub_549E90__8Task_CPUP9LandscapeRiT2ii
  0001:00148FD0       predict_edge_fall_sub_549FD0__8Task_CPUiii
  0001:001490C0       calculate_edge_danger_sub_54A0C0__8Task_CPUiiRiT3
+ 0001:00149100       same_ally_sub_54A100__8Task_CPUii
  0001:00149130       calculate_damage_sub_54A130__8Task_CPUiiiiiRiT6
  0001:00149460       calculate_damage_sub_54A460__8Task_CPU
  0001:00149740       missile_damage_sub_54A740__8Task_CPUR13WeaponMissileRiT2
@@ -1003,10 +1011,26 @@
  0001:0014E190       message_sub_54F190__10Task_FlameR4Task15TaskMessageTypeiP15TaskMessageBody
  0001:0014E3D0       Task_Filter_sub_54F3D0__11Task_Filter
  0001:0014E4C0       Task_Fire_sub_54F4C0__9Task_Fire
+ 0001:0014E6D0       Task_Fire_sub_54F6D0__9Task_Fire
+ 0001:0014E770       save_sub_54F770__9Task_FireR10ClassState
+ 0001:0014E940       create_fire_sub_54F940__9Task_FireR8FireInit
+ 0001:0014EAD0       check_for_impacts_sub_54FAD0__9Task_Fire
+ 0001:0014ED40       emit_smoke_sub_54FD40__9Task_Fire13DisplaySpritei
+ 0001:0014EE20       update_falling_sub_54FE20__9Task_Fire
+ 0001:0014F100       update_burning_sub_550100__9Task_Fire
+ 0001:0014F140       perform_burning_sub_550140__9Task_Fire
+ 0001:0014F1A0       message_sub_5501A0__9Task_FireR4Task15TaskMessageTypeiP15TaskMessageBody
  0001:0014F6AE       def_5501C4
  0001:0014F6B8       jpt_5501C4
+ 0001:0014F6F0       blast_sub_5506F0__9Task_Fireiii
  0001:0014F890       Task_FireBall_sub_550890__13Task_FireBall
+ 0001:0014F920       Task_FireBall_sub_550920__13Task_FireBall
+ 0001:0014F9E0       save_sub_5509E0__13Task_FireBallR10ClassState
+ 0001:0014FA70       check_for_target_sub_550A70__13Task_FireBall
+ 0001:0014FD00       message_sub_550D00__13Task_FireBallR4Task15TaskMessageTypeiP15TaskMessageBody
  0001:0014FE70       Task_Game_sub_550E70__9Task_Game
+ 0001:001500B0       Task_Game_sub_5510B0__9Task_Game
+ 0001:00150190       save_sub_551190__9Task_GameR10ClassState
  0001:00150210       ??1strstreambuf@std@@UAE@XZ_9
  0001:001504D0       construct_pointers_sub_5514D0__9Task_Game
  0001:00150620       raise_crowd_sub_551620__9Task_Game
@@ -1046,24 +1070,46 @@
  0001:001531D8       jpt_553BF6
  0001:001532B4       jpt_553C6D
  0001:00153750       Task_Gass_sub_554750__9Task_Gass
+ 0001:00153810       Task_Gass_sub_554810__9Task_Gass
+ 0001:001538E0       save_sub_5548E0__9Task_GassR10ClassState
+ 0001:00153A70       message_sub_554A70__9Task_GassR4Task15TaskMessageTypeiP15TaskMessageBody
  0001:00153CA0       Task_ScoreBubble_sub_554CA0__16Task_ScoreBubble
  0001:00153DF0       construct_pointers_sub_554DF0__16Task_ScoreBubble
+ 0001:00153E80       message_sub_554E80__16Task_ScoreBubbleR4Task15TaskMessageTypeiP15TaskMessageBody
  0001:00153FE0       Task_SeaBubble_sub_554FE0__14Task_SeaBubble
+ 0001:00154090       message_sub_555090__14Task_SeaBubbleR4Task15TaskMessageTypeiP15TaskMessageBody
  0001:001541D0       Task_Smoke_sub_5551D0__10Task_Smoke
+ 0001:00154280       message_sub_555280__10Task_SmokeR4Task15TaskMessageTypeiP15TaskMessageBody
  0001:001543C0       Task_AirStrike_sub_5553C0__14Task_AirStrike
+ 0001:00154630       Task_AirStrike_sub_555630__14Task_AirStrike
+ 0001:00154720       save_sub_555720__14Task_AirStrikeR10ClassState
  0001:00154800       release_missile_sub_555800__14Task_AirStrike
+ 0001:00154A20       message_sub_555A20__14Task_AirStrikeR4Task15TaskMessageTypeiP15TaskMessageBody
  0001:00154BB0       Task_Team_sub_555BB0__9Task_Team
+ 0001:00154E40       Task_Team_sub_555E40__9Task_Team
+ 0001:00154F80       save_sub_555F80__9Task_TeamR10ClassState
+ 0001:00155120       select_default_weapon_sub_556120__9Task_Teami
+ 0001:00155230       find_default_weapon_sub_556230__9Task_Teami
+ 0001:00155880       set_worm_sub_556880__9Task_Teami
+ 0001:00156270       update_reselect_sub_557270__9Task_Team
+ 0001:00156310       message_sub_557310__9Task_TeamR4Task15TaskMessageTypeiP15TaskMessageBody
  0001:00156664       def_55734E
  0001:00156FAC       def_557E66
  0001:00157A34       jpt_55734E
  0001:00157B70       jpt_557E66
+ 0001:00157BE0       render_start_delay_sub_558BE0__9Task_Team
  0001:00157CF0       play_tick_sub_558CF0__9Task_Teamii
+ 0001:00157D40       update_start_delay_sub_558D40__9Task_Team
  0001:00157E30       select_weapon_sub_558E30__9Task_TeamP15TaskMessageFifo11WeaponIndex
+ 0001:00157F20       reset_keyboard_sub_558F20__9Task_Team
  0001:00158211       def_5591DB
  0001:001582A4       jpt_5591DB
  0001:001582E0       check_for_reselect_sub_5592E0__9Task_TeamP15TaskMessageFifo
+ 0001:00159710       process_worm_movement_sub_55A710__9Task_TeamP15TaskMessageFifo
+ 0001:00159BC0       process_weapon_select_sub_55ABC0__9Task_TeamP15TaskMessageFifo
  0001:0015A280       Task_TurnGame_sub_55B280__13Task_TurnGame
  0001:0015A560       Task_TurnGame_sub_55B560__13Task_TurnGame
+ 0001:0015A5E0       save_sub_55B5E0__13Task_TurnGameR10ClassState
  0001:0015A850       construct_pointers_sub_55B850__13Task_TurnGame
  0001:0015AB50       surrender_team_sub_55BB50__13Task_TurnGame
  0001:0015AC20       get_current_worm_sub_55BC20__13Task_TurnGame
