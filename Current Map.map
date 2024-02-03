@@ -314,7 +314,11 @@
  0001:000FD070       set_state_sub_4FE070__8Task_CPUQ28Task_CPU8CPUState
  0001:000FD130       Task_Arrow_sub_4FE130__10Task_Arrow
  0001:000FD310       init_mask_sub_4FE310__10Task_Arrow
+ 0001:000FD550       save_sub_4FE550__10Task_ArrowR10ClassState
  0001:000FD750       impact_sub_4FE750__10Task_Arrow
+ 0001:000FD8A0       water_splash_sub_4FE8A0__10Task_Arrow
+ 0001:000FD900       collide_sub_4FE900__10Task_ArrowP17GameCollisionTaski
+ 0001:000FD930       render_sub_4FE930__10Task_Arrow
  0001:000FD9C0       message_sub_4FE9C0__10Task_Arrow
  0001:000FDD10       ?GetGroup@ScheduleGroupSegmentBase@details@Concurrency@@QBEPAVScheduleGroupBase@23@XZ
  0001:000FDD50       GameCollisionTask_sub_4FED50__17GameCollisionTask
@@ -330,6 +334,10 @@
  0001:000FE9D8       jpt_4FF73E
  0001:000FEED0       collide_sub_4FFED0__17GameCollisionTaskP17GameCollisionTaski
  0001:000FF230       gradient_sub_500230__17GameCollisionTask
+ 0001:000FF360       water_splish_sub_500360__17GameCollisionTask
+ 0001:000FF380       water_splash_sub_500380__17GameCollisionTask
+ 0001:000FF720       render_rope_sub_500720__17GameCollisionTaskiii
+ 0001:00100340       collect_crate_sub_501340__17GameCollisionTaskiii
  0001:001006F1       def_501484
  0001:00100862       def_5017C3
  0001:001008C8       jpt_501484
@@ -776,6 +784,7 @@
  0001:00121500       set_playing_sub_522500__12GameDatabase
  0001:001215A0       get_flag_sub_5225A0__12GameDatabase12DatabaseFlag
  0001:001215E0       get_nweapons_sub_5225E0__12GameDatabasei11WeaponIndex
+ 0001:00121640       inc_nweapons_sub_522640__12GameDatabasei11WeaponIndexi
  0001:001216E5       def_5226D6
  0001:001216EC       jpt_5226D6
  0001:00121700       get_revenge_sub_522700__12GameDatabaseiiRiT3
@@ -842,18 +851,28 @@
  0001:00140970       insert_sub_541970__15ProbabilityList
  0001:001409C0       pick_sub_5419C0__15ProbabilityList
  0001:00140A70       remove_sub_541A70__15ProbabilityList
+ 0001:00140DD0       polyline3d_sub_541DD0__8GameTaskiPA3_iii
+ 0001:00140E50       polyline3d_sub_541E50__8GameTaskiPA3_iiii
  0001:00140F40       fill3d_sub_541F40__8GameTaskiiiiiii
  0001:00140FE0       sprite2d_sub_541FE0__8GameTask
  0001:00141060       sprite3d_sub_542060__8GameTask
  0001:00141170       bitmap2d_sub_542170__8GameTask
  0001:00141200       bitmap3d_sub_542200__9GameScene
+ 0001:00141330       elcmp_sub_542330__FPCvT0
+ 0001:00141350       render_sub_542350__9GameSceneR7DisplayR15GameSceneCamera
  0001:00141A9E       def_5423A5
  0001:00141AC8       jpt_5423A5
+ 0001:00141BA0       project_sub_542BA0__15GameSceneCameraiiiiRiN25
  0001:00144482       def_54526F
  0001:00144639       def_545547
  0001:0014465C       jpt_54526F
  0001:00144684       jpt_545547
  0001:001447D0       SortHandler_sub_5457D0__11SortHandler
+ 0001:001448F0       update_sub_5458F0__11SortHandler
+ 0001:00144A20       set_death_sub_545A20__11SortHandlerQ211SortHandler9DeathMode
+ 0001:00144A30       render_sub_545A30__11SortHandleriiRii
+ 0001:00144C70       value_sub_545C70__11SortHandler
+ 0001:00144CA0       height_sub_545CA0__11SortHandler
  0001:001450F0       put_bytes_sub_5460F0__10ClassStatePvi
  0001:00145490       sound_stop_sub_546490__8GameTask
  0001:001456C0       Task_Animation_sub_5466C0__14Task_Animation
@@ -1204,6 +1223,7 @@
  0001:00162D40       RootSortHandler_sub_563D40__15RootSortHandler
  0001:00162E90       destruct_RootSortHandler_sub_563E90__15RootSortHandler
  0001:00162EB0       destruct_RootSortHandler_sub_563EB0__15RootSortHandler
+ 0001:00162F30       j_update_sub_563F30__11SortHandler
  0001:00162FC0       EditorBitmap_sub_563FC0__12EditorBitmap
  0001:001631E0       adjust_xpos_sub_5641E0__12EditorBitmap
  0001:00163250       edit_backspace_sub_564250__12EditorBitmap
